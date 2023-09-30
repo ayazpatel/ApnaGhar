@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "652598090958",
+    "project_id": "ayaz-350508",
+    "storage_bucket": "ayaz-350508.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652598090958:android:cc3e9668872aad1526449f",
+        "android_client_info": {
+          "package_name": "com.example.apnaghar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLoRBlgKg5qE9YWSJPLQ5bHGw_9MLLxDs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

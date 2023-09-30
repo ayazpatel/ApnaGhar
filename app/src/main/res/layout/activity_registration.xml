@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registration">
+
+    <!-- Phone Number -->
+    <LinearLayout
+        android:id="@+id/phonenum"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardveiw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Register "
+                    android:textSize="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="25dp"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/phone"
+                    android:background="@drawable/stroke"
+                    android:drawableLeft="@drawable/baseline_local_phone_24"
+                    android:drawablePadding="8dp"
+                    android:hint="Enter PhoneNo"
+                    android:padding="8dp"
+                    android:inputType="number"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="34dp"/>
+
+                <Button
+                    android:id="@+id/btn_send"
+                    android:layout_width="300dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="28dp"
+                    android:text="Send Otp"
+                    android:layout_gravity="center_horizontal"
+                    app:cornerRadius = "40dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="#65E6EF"/>
+
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:id="@+id/bgimage1"
+            android:layout_height="wrap_content"
+            android:src="@drawable/regis"
+            android:layout_marginBottom="2dp"/>
+
+    </LinearLayout>
+
+    <!-- Otp Verify -->
+    <LinearLayout
+        android:id="@+id/otpverify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CO\nDE"
+            android:textSize="60dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VERIFICATION"
+            android:textSize="30dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We have sent otp to your Mob No: 7778878967"
+            android:textColor="#939393"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            android:gravity="center"
+            />
+
+        <com.chaos.view.PinView
+            android:id="@+id/pinview"
+            app:itemCount="4"
+            app:itemWidth="50dp"
+            app:itemHeight="50dp"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:itemBackground="#EAEAEA"
+            android:layout_gravity="center"
+            android:inputType="number"
+            app:lineColor="@color/sky"
+            android:cursorVisible="true"
+            app:hideLineWhenFilled="true"
+            app:itemRadius="10dp"
+            style="@style/PinWidget.PinView"
+            >
+
+        </com.chaos.view.PinView>
+
+
+        <Button
+            android:id="@+id/btn_verify"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="#65E6EF"
+            android:text="Verify"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+
+
+    </LinearLayout>
+
+    <!-- Register Form -->
+    <LinearLayout
+        android:id="@+id/form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp"
+            android:background="@color/white">
+
+
+            <LinearLayout
+                android:id="@+id/email_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Register "
+                    android:textSize="30dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/firstname"
+                    android:background="@drawable/stroke"
+                    android:drawableLeft="@drawable/ic_baseline_person_24"
+                    android:drawablePadding="8dp"
+                    android:hint="First Name"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="40dp"/>
+
+                <EditText
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/lastname"
+                    android:background="@drawable/stroke"
+                    android:drawableLeft="@drawable/ic_baseline_person_24"
+                    android:drawablePadding="8dp"
+                    android:hint="Last Name"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="12dp"/>
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/stroke">
+
+                    <Spinner
+                        android:id="@+id/state_spinner"
+                        android:layout_width="300dp"
+                        android:layout_height="50dp"
+                        android:contentDescription="Select State"
+                        android:autofillHints="Select state"
+                        >
+
+                    </Spinner>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/stroke">
+
+                    <Spinner
+                        android:id="@+id/city_spinner"
+                        android:layout_width="300dp"
+                        android:layout_height="50dp"
+                        android:contentDescription="Select a city"
+                        android:autofillHints="Select City">
+                    </Spinner>
+
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/btn_regist"
+                    android:layout_width="300dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="18dp"
+                    android:text="Next"
+                    android:layout_gravity="center_horizontal"
+                    app:cornerRadius = "40dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="#65E6EF"/>
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:id="@+id/bgimage"
+            android:layout_height="wrap_content"
+            android:src="@drawable/regis"
+            android:layout_marginBottom="2dp"/>
+
+    </LinearLayout>
+
+<!--    Email Pass Confirm-->
+    <LinearLayout
+        android:id="@+id/registration_email_start"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardsv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="20dp"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:id="@+id/email_layout01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="You're Almost there.. "
+                    android:textSize="30dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/emailid1"
+                    android:background="@drawable/stroke"
+                    android:drawableLeft="@drawable/mail"
+                    android:drawablePadding="8dp"
+                    android:hint="Enter Email"
+                    android:padding="8dp"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="14dp"/>
+                <EditText
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/email_password1"
+                    android:background="@drawable/stroke"
+                    android:drawableLeft="@drawable/ic_baseline_lock_24"
+                    android:drawablePadding="8dp"
+                    android:hint="Password"
+                    android:padding="8dp"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="14dp"/>
+                <EditText
+                    android:layout_width="300dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/email_conpass1"
+                    android:background="@drawable/stroke"
+                    android:drawableLeft="@drawable/ic_baseline_lock_24"
+                    android:drawablePadding="8dp"
+                    android:hint="Confirm Password"
+                    android:padding="8dp"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="14dp"/>
+                <Button
+                    android:id="@+id/send_email_confirm_link"
+                    android:layout_width="300dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="18dp"
+                    android:text="Verify Now"
+                    android:layout_gravity="center_horizontal"
+                    app:cornerRadius = "40dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="#65E6EF"/>
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+    </LinearLayout>
+
+<!--    verify mail-->
+    <LinearLayout
+        android:id="@+id/registration_email_confirm_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/likhna_hai_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Registration Successfull!\nWe Have Sent Email Verification Link to "
+            android:textColor="@color/black"
+            android:textSize="23dp" />
+
+        <ImageView
+            android:id="@+id/bgimageas"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/email_page" />
+
+        <Button
+            android:id="@+id/btn_method_run_verfication_check"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#65E6EF"
+            android:text="Verify Now"
+            app:cornerRadius="40dp" />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_centerInParent="true"
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyleLarge" />
+
+
+</RelativeLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center">
+    <LinearLayout
+        android:id="@+id/otppin_dialog_phone_login_otp_verify"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OTP"
+            android:textSize="55dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VERIFICATION"
+            android:textSize="25dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We have sent otp to your Mob No: 7778878967"
+            android:textColor="#939393"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp"
+            android:gravity="center"
+            />
+
+        <com.chaos.view.PinView
+            android:id="@+id/phone_otp_pinview"
+            app:itemCount="4"
+            app:itemWidth="50dp"
+            app:itemHeight="50dp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:itemBackground="#EAEAEA"
+            android:layout_gravity="center"
+            android:inputType="number"
+            app:lineColor="@color/sky"
+            android:cursorVisible="true"
+            app:hideLineWhenFilled="true"
+            app:itemRadius="10dp"
+            style="@style/PinWidget.PinView">
+
+        </com.chaos.view.PinView>
+
+
+        <Button
+            android:id="@+id/btn_phone_otp_verify"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#65E6EF"
+            android:text="Verify"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+</RelativeLayout>
