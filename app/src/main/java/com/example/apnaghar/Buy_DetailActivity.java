@@ -19,12 +19,16 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.app.AlertDialog;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Buy_DetailActivity extends AppCompatActivity {
 
@@ -49,6 +53,7 @@ public class Buy_DetailActivity extends AppCompatActivity {
     String email_agent_reciver = "";
     ProgressDialog progressDialog;
     public String token_booking_price = "1000";
+    public String prop_id = "";
     public String company_brand = "-by APNA GHAR";
     public String image1Url,landlord_phone,booker_phone,landlord_name,booker_name,landlord_email,booker_email,home_detail_address;
 
@@ -118,7 +123,7 @@ public class Buy_DetailActivity extends AppCompatActivity {
 
                             if (dataArray.length() > 0) {
                                 JSONObject product = dataArray.getJSONObject(0);
-
+                                prop_id = product.getString("id");
                                 String bsType = product.getString("BS_Type");
                                 String bs_sub_Type = product.getString("BS_Sub_Type");
                                 String bs_sub_Type2 = product.getString("BS_Sub_Type2");
@@ -256,7 +261,8 @@ public class Buy_DetailActivity extends AppCompatActivity {
 
     private void make_payment(String local_email, String local_token_price) {
         progressDialog.show();
-        String apiUrl = "https://et.ayafitech.com/api/make_payment.php?email=" + local_email + "&amount=" + local_token_price;
+        String apiUrl = "https://et.ayafitech.com/api/make_payment.php?name="+booker_name+"&phone=8128077786&email="+local_email+"&amount="+local_token_price+"&property_id="+prop_id;
+//        String apiUrl = "https://et.ayafitech.com/api/make_payment.php?email=" + local_email + "&amount=" + local_token_price;
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
@@ -284,7 +290,7 @@ public class Buy_DetailActivity extends AppCompatActivity {
                             } else {
                                 String message = response.getString("message");
                                 progressDialog.dismiss();
-                                Toast.makeText(getApplicationContext(), "Payment Failed: " + message, Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getApplicationContext(), "Payment Failed: " + message, Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             progressDialog.dismiss();
@@ -368,6 +374,45 @@ public class Buy_DetailActivity extends AppCompatActivity {
                 }
         );
         requestQueue.add(jsonObjectRequest);
+    }
+    private void booking_table_update() {
+        String url = "https://et.ayafitech.com/api/bookings.php";
+
+// Create a Volley request
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Handle the response from the PHP API
+                        // You can parse and process the response here
+                        // For example, display a success message
+                        Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // Handle errors here
+                        // For example, display an error message
+                        Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+                // Define the parameters to send to the PHP API
+                Map<String, String> params = new HashMap<>();
+                params.put("name", "Ayaz Patel");
+                params.put("phone", "8128077786");
+                params.put("email", "ayazpatel701@gmail.com");
+                params.put("amount", "1000");
+                params.put("property_id", "5");
+
+                return params;
+            }
+        };
+
+// Add the request to the Volley request queue
+        Volley.newRequestQueue(this).add(stringRequest);
     }
 
 }
