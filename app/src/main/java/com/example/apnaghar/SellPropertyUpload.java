@@ -35,7 +35,7 @@ import java.util.Map;
 
 public class SellPropertyUpload extends AppCompatActivity {
     private ImageView imageview_sell_prpperty_upload_data,imageview_sell_prpperty_upload_data2;
-    private EditText editText_BS_Type, editText_BS_Sub_Type, editText_BS_Sub_Type2, editText_Price, editText_Address, editText_Landmark, editText_State,
+    private EditText editText_BS_Type, editText_BS_Sub_Type, editText_BS_Sub_Type2, editText_BS_For, editText_Price, editText_Address, editText_Landmark, editText_State,
             editText_City, editText_Description, editText_Owner, editText_Phone_No, editText_Email_Id, editText_is_Featured;
     private Button button_sell_prpperty_upload_data;
     Bitmap bitmap,bitmap2;
@@ -49,6 +49,7 @@ public class SellPropertyUpload extends AppCompatActivity {
         editText_BS_Type = findViewById(R.id.editText_BS_Type);
         editText_BS_Sub_Type = findViewById(R.id.editText_BS_Sub_Type);
         editText_BS_Sub_Type2 = findViewById(R.id.editText_BS_Sub_Type2);
+        editText_BS_For = findViewById(R.id.editText_BS_For);
         editText_Price =findViewById(R.id.editText_Price);
         editText_Address = findViewById(R.id.editText_Address);
         editText_Landmark =findViewById(R.id.editText_Landmark);
@@ -124,6 +125,7 @@ public class SellPropertyUpload extends AppCompatActivity {
                 String string_editText_BS_Type = editText_BS_Type.getText().toString();
                 String string_editText_BS_Sub_Type = editText_BS_Sub_Type.getText().toString();
                 String string_editText_BS_Sub_Type2 = editText_BS_Sub_Type2.getText().toString();
+                String strint_editText_BS_For = editText_BS_For.getText().toString();
                 String string_editText_Price = editText_Price.getText().toString();
                 String string_editText_Address = editText_Address.getText().toString();
                 String string_editText_Landmark = editText_Landmark.getText().toString();
@@ -159,8 +161,12 @@ public class SellPropertyUpload extends AppCompatActivity {
                                     } else if (response.equals("image data not found")) {
                                         Toast.makeText(SellPropertyUpload.this, "Image data not found", Toast.LENGTH_SHORT).show();
                                     } else {
-                                        Toast.makeText(SellPropertyUpload.this, "Unknown response: " + response, Toast.LENGTH_SHORT).show();
-                                        Log.e("Ayaz Got Error", response);
+                                        Toast.makeText(SellPropertyUpload.this, "Upload Success", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getApplicationContext(),Homescreeen.class);
+                                        startActivity(intent);
+                                        finish();
+//                                        Toast.makeText(SellPropertyUpload.this, "Unknown response: " + response, Toast.LENGTH_SHORT).show();
+//                                        Log.e("Ayaz Got Error", response);
                                     }
                                 }
                             }, new Response.ErrorListener() {
@@ -176,6 +182,7 @@ public class SellPropertyUpload extends AppCompatActivity {
                             paramV.put("BS_Type", string_editText_BS_Type);
                             paramV.put("BS_Sub_Type", string_editText_BS_Sub_Type);
                             paramV.put("BS_Sub_Type2", string_editText_BS_Sub_Type2);
+                            paramV.put("BS_For",strint_editText_BS_For);
                             paramV.put("Price", string_editText_Price);
                             paramV.put("Address", string_editText_Address);
                             paramV.put("Landmark", string_editText_Landmark);
@@ -185,7 +192,7 @@ public class SellPropertyUpload extends AppCompatActivity {
                             paramV.put("Owner", string_editText_Owner);
                             paramV.put("Phone_No", string_editText_Phone);
                             paramV.put("Email_Id", string_editText_Email_Id);
-                            paramV.put("is_Featured", string_editText_is_Featured);
+                            paramV.put("is_Featured", "0");
                             paramV.put("is_Sold", "0");
                             return paramV;
                         }

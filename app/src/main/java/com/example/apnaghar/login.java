@@ -149,76 +149,144 @@ public class login extends AppCompatActivity {
         Intent intent=new Intent(login.this,Registration.class);
         startActivity(intent);
     }
-private void loginEmail() {
-    progressDialog.show();
-    Button btnEmailLogin = findViewById(R.id.btn_email_login);
-    String email_for_login = ((EditText) findViewById(R.id.email_for_login)).getText().toString();
-    String password_for_login = ((EditText) findViewById(R.id.password_for_login)).getText().toString();
 
-    SharedPreferences.Editor editor = sharedPreferences.edit();
-    editor.putString(KEY_EMAIL, email_for_login);
-    editor.putString(KEY_PASSWORD, password_for_login);
-    editor.apply();
-
-    String apiUrl = "https://et.ayafitech.com/api/login_email.php?e=" + email_for_login + "&p=" + password_for_login;
-    RequestQueue queue = Volley.newRequestQueue(this);
-    StringRequest registrationRequest = new StringRequest(
-            Request.Method.GET,
-            apiUrl,
-            new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    handleEmailLoginResponse(response);
+    private void loginEmail() {
+        progressDialog.show();
+        Button btnEmailLogin = findViewById(R.id.btn_email_login);
+        String email_for_login = ((EditText) findViewById(R.id.email_for_login)).getText().toString();
+        String password_for_login = ((EditText) findViewById(R.id.password_for_login)).getText().toString();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_EMAIL, email_for_login);
+        editor.putString(KEY_PASSWORD, password_for_login);
+        editor.apply();
+        String apiUrl = "https://et.ayafitech.com/api/login_email.php?e=" + email_for_login + "&p=" + password_for_login;
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest registrationRequest = new StringRequest(
+                Request.Method.GET,
+                apiUrl,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        handleEmailLoginResponse(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        handleEmailLoginErrorResponse(error);
+                        btnEmailLogin.setEnabled(true);
+                    }
                 }
-            },
-            new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    handleEmailLoginErrorResponse(error);
-                    btnEmailLogin.setEnabled(true);
-                }
-            });
-    queue.add(registrationRequest);
-}
+        );
+        queue.add(registrationRequest);
+    }
     private void handleEmailLoginResponse(String response) {
-        String temp_email_agent = savedEmail;
         try {
             JSONObject jsonObject = new JSONObject(response);
             if (jsonObject.has("message")) {
                 String message = jsonObject.getString("message");
                 if (message.equals("Login successful!")) {
                     progressDialog.dismiss();
-                    if (savedEmail != null && !savedEmail.isEmpty()) {
-                        Intent intent = new Intent(login.this, Homescreeen.class);
-                        intent.putExtra(KEY_EMAIL, savedEmail);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        Intent intent = new Intent(login.this, Homescreeen.class);
-                        startActivity(intent);
-                        finish();
-                    }
+                    Intent intent = new Intent(login.this, Homescreeen.class);
+                    intent.putExtra(KEY_EMAIL, savedEmail);
+                    startActivity(intent);
+                    finish();
                 } else if (message.equals("Email is not verified.")) {
                     progressDialog.dismiss();
-                    showAlertDialog(login.this,"Warning","We have sent a confirmation link on your email account\nPlease verify it",false);
+                    showAlertDialog(login.this, "Warning", "We have sent a confirmation link on your email account\nPlease verify it", false);
                 } else {
                     progressDialog.dismiss();
-                    showAlertDialog(login.this,"Login Error","Login failed, try again!",false);
+                    Log.e("Error Resolve",message);
+                    showAlertDialog(login.this, "Login Error", "Login failed, try again!", false);
                 }
             } else {
                 progressDialog.dismiss();
-                showAlertDialog(login.this,"Login Error","Invalid response from the server.",false);
+                showAlertDialog(login.this, "Login Error", "Invalid response from the server.", false);
             }
         } catch (JSONException e) {
             e.printStackTrace();
             progressDialog.dismiss();
-            showAlertDialog(login.this,"Login Error","Failed to verify email. JSON Exception: \n" + e.getMessage(),false);
+            showAlertDialog(login.this, "Login Error", "Failed to verify email. JSON Exception: \n" + e.getMessage(), false);
         }
     }
     private void handleEmailLoginErrorResponse(VolleyError error) {
         progressDialog.dismiss();
-        showAlertDialog(login.this,"Login Error","Failed to verify email. Volley Error: \n" + error.getMessage(),false);
+        showAlertDialog(login.this, "Login Error", "Failed to verify email. Volley Error: \n" + error.getMessage(), false);
     }
+
+
+
+    //private void loginEmail() {
+//    progressDialog.show();
+//    Button btnEmailLogin = findViewById(R.id.btn_email_login);
+//    String email_for_login = ((EditText) findViewById(R.id.email_for_login)).getText().toString();
+//    String password_for_login = ((EditText) findViewById(R.id.password_for_login)).getText().toString();
+//
+//    SharedPreferences.Editor editor = sharedPreferences.edit();
+//    editor.putString(KEY_EMAIL, email_for_login);
+//    editor.putString(KEY_PASSWORD, password_for_login);
+//    editor.apply();
+//
+//    String apiUrl = "https://et.ayafitech.com/api/login_email.php?e=" + email_for_login + "&p=" + password_for_login;
+//    RequestQueue queue = Volley.newRequestQueue(this);
+//    StringRequest registrationRequest = new StringRequest(
+//            Request.Method.GET,
+//            apiUrl,
+//            new Response.Listener<String>() {
+//                @Override
+//                public void onResponse(String response) {
+//                    handleEmailLoginResponse(response);
+//                }
+//            },
+//            new Response.ErrorListener() {
+//                @Override
+//                public void onErrorResponse(VolleyError error) {
+//                    handleEmailLoginErrorResponse(error);
+////                    Toast.makeText(login.this, error.toString(), Toast.LENGTH_SHORT).show();
+//                    btnEmailLogin.setEnabled(true);
+//                }
+//            });
+//    queue.add(registrationRequest);
+//}
+//    private void handleEmailLoginResponse(String response) {
+//        String temp_email_agent = savedEmail;
+//        try {
+//            JSONObject jsonObject = new JSONObject(response);
+//            if (jsonObject.has("message")) {
+//                String message = jsonObject.getString("message");
+//                if (message.equals("Login successful!")) {
+//                    progressDialog.dismiss();
+//                    if (savedEmail != null && !savedEmail.isEmpty()) {
+//                        Intent intent = new Intent(login.this, Homescreeen.class);
+//                        intent.putExtra(KEY_EMAIL, savedEmail);
+//                        startActivity(intent);
+//                        finish();
+//                    } else {
+//                        Intent intent = new Intent(login.this, Homescreeen.class);
+//                        startActivity(intent);
+//                        finish();
+//                    }
+//                } else if (message.equals("Email is not verified.")) {
+//                    progressDialog.dismiss();
+//                    showAlertDialog(login.this,"Warning","We have sent a confirmation link on your email account\nPlease verify it",false);
+//                } else {
+//                    progressDialog.dismiss();
+//                    showAlertDialog(login.this,"Login Error","Login failed, try again!",false);
+//                }
+//            } else {
+//                progressDialog.dismiss();
+//                showAlertDialog(login.this,"Login Error","Invalid response from the server.",false);
+//            }
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//            progressDialog.dismiss();
+//            showAlertDialog(login.this,"Login Error","Failed to verify email. JSON Exception: \n" + e.getMessage(),false);
+//        }
+//    }
+//    private void handleEmailLoginErrorResponse(VolleyError error) {
+//        progressDialog.dismiss();
+//        showAlertDialog(login.this,"Login Error","Failed to verify email. Volley Error: \n" + error.getMessage(),false);
+//    }
     private String generateOTP_for_phone() {
         int min = 1000;
         int max = 9999;

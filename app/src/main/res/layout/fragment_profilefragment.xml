@@ -123,6 +123,7 @@
                             android:src="@drawable/baseline_person_24">
                         </ImageView>
                         <TextView
+                            android:id="@+id/profile_detail_card_fullname_show"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="loading.."
@@ -143,6 +144,7 @@
                             android:src="@drawable/baseline_local_phone_24">
                         </ImageView>
                         <TextView
+                            android:id="@+id/profile_detail_card_phone_show"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="loading.."
@@ -163,6 +165,7 @@
                             android:src="@drawable/baseline_email_24">
                         </ImageView>
                         <TextView
+                            android:id="@+id/profile_detail_card_email_show"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="loading.."
@@ -176,6 +179,8 @@
 
 
             <Button
+                android:id="@+id/mybtn_verygood"
+                android:visibility="visible"
                 android:layout_width="180dp"
                 android:layout_height="60dp"
                 android:background="@drawable/btn_buynow"

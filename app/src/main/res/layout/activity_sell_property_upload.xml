@@ -75,12 +75,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:textColor="@color/black"
-                android:hint="BHK"
+                android:hint="1"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/strok2"
                 android:padding="10dp"/>
             <EditText
                 android:id="@+id/editText_BS_Sub_Type2"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/strok2"
+                android:hint="BHK"
+                android:padding="10dp"/>
+            <EditText
+                android:id="@+id/editText_BS_For"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:textColor="@color/black"
@@ -170,10 +179,11 @@
                 android:textColor="@color/black"
                 android:padding="10dp"/>
             <EditText
+                android:visibility="gone"
                 android:id="@+id/editText_is_Featured"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Date"
+                android:hint="Is Featured"
                 android:textColor="@color/black"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/strok2"

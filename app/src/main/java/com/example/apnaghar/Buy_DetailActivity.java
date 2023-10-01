@@ -191,7 +191,7 @@ public class Buy_DetailActivity extends AppCompatActivity {
         alertDialogBuilder.setPositiveButton("Make Payment", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-//                sound.start();
+                sound.start();
                 make_payment(email_agent_reciver,token_booking_price);
             }
         });
@@ -348,19 +348,20 @@ public class Buy_DetailActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         progressDialog.dismiss();
-                        Intent intent = new Intent(getApplicationContext(),SuccessBooking.class);
-                        startActivity(intent);
-                        finish();
+                        Toast.makeText(Buy_DetailActivity.this, "PAymetn Sucecc", Toast.LENGTH_SHORT).show();
+//                        Intent intent = new Intent(getApplicationContext(),SuccessBooking.class);
+//                        startActivity(intent);
+//                        finish();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.dismiss();
-                        progressDialog.dismiss();
-                        Intent intent = new Intent(getApplicationContext(),SuccessBooking.class);
-                        startActivity(intent);
-                        finish();
+                        Toast.makeText(Buy_DetailActivity.this, "PAymetn Sucecc", Toast.LENGTH_SHORT).show();
+//                        Intent intent = new Intent(getApplicationContext(),SuccessBooking.class);
+//                        startActivity(intent);
+//                        finish();
                     }
                 }
         );

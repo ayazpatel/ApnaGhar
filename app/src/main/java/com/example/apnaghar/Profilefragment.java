@@ -83,6 +83,16 @@ public class Profilefragment extends Fragment {
         my_orders_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                Intent intent = new Intent(getContext(),MySellingsActivity.class);
+//                intent.putExtra("my_email_For_you",email);
+//                startActivity(intent);
+            }
+        });
+
+        Button mybtn_verygood = view.findViewById(R.id.mybtn_verygood);
+        mybtn_verygood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent intent = new Intent(getContext(),MySellingsActivity.class);
                 intent.putExtra("my_email_For_you",email);
                 startActivity(intent);
@@ -111,7 +121,13 @@ public class Profilefragment extends Fragment {
                             phoneNo = userData.getString("phone_no");
                             wallet = userData.getString("wallet");
                             TextView walletBalanceText = getView().findViewById(R.id.profile_wallet_card_show_money);
+                            TextView updateProfilePhone = getView().findViewById(R.id.profile_detail_card_phone_show);
+                            TextView updateProfileEmail = getView().findViewById(R.id.profile_detail_card_email_show);
+                            TextView updateProfileFullName = getView().findViewById(R.id.profile_detail_card_fullname_show);
                             walletBalanceText.setText(wallet);
+                            updateProfilePhone.setText(phoneNo);
+                            updateProfileEmail.setText(email);
+                            updateProfileFullName.setText(firstName+" "+lastName);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
