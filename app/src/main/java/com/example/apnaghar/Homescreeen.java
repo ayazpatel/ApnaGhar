@@ -38,11 +38,21 @@ public class Homescreeen extends AppCompatActivity implements NavigationView.OnN
     BottomNavigationView bottomNavigationView;
     FragmentManager fragmentManager;
     public String email_agent_reciver;
+    ImageView img;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreeen);
+
+        img=findViewById(R.id.aboutusonclick);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Homescreeen.this,about.class);
+                startActivity(intent);
+            }
+        });
 
         Intent intent = getIntent();
         if (intent != null) {

@@ -10,12 +10,12 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/success_anim"
-        android:layout_width="220dp"
-        android:layout_height="200dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_marginTop="60dp"
         android:layout_gravity="center"
         app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/animation_lmufz2w5">
+        app:lottie_rawRes="@raw/animation_ln7mp9k1">
 
     </com.airbnb.lottie.LottieAnimationView>
 
@@ -41,11 +41,11 @@
     </TextView>
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
         android:src="@drawable/lgn">
-
     </ImageView>
 
 

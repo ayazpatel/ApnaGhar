@@ -92,6 +92,7 @@ public class Buy_DetailActivity extends AppCompatActivity {
         });
 
         sound=MediaPlayer.create(Buy_DetailActivity.this,R.raw.apple);
+//        sound.start();
         btn_buynow_buydetail=findViewById(R.id.btn_buynow_buydetail);
         btn_buynow_buydetail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,7 +192,7 @@ public class Buy_DetailActivity extends AppCompatActivity {
         alertDialogBuilder.setPositiveButton("Make Payment", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                sound.start();
+
                 make_payment(email_agent_reciver,token_booking_price);
             }
         });
@@ -274,6 +275,12 @@ public class Buy_DetailActivity extends AppCompatActivity {
                                         "%0AName: "+booker_name+
                                         "%0APhone: "+booker_phone+
                                         "%0AEmail: "+booker_email+"%0A%0A%0A%"+company_brand,image1Url);
+                                send_to_booker(booker_phone,"Property has been successfully booked!%0A%0A" +
+                                        "Property Details: "+home_detail_address+"%0A%0A"+
+                                        "Landlord Details: "+
+                                        "%0AName: "+landlord_name+
+                                        "%0APhone: "+landlord_phone+
+                                        "%0AEmail: "+landlord_email+"%0A%0A%0A%"+company_brand,image1Url);
                             } else {
                                 String message = response.getString("message");
                                 progressDialog.dismiss();
@@ -312,12 +319,7 @@ public class Buy_DetailActivity extends AppCompatActivity {
                             String messageStatus = response.getString("message_status");
                             if(messageStatus.equals("Success")) {
                                 progressDialog.dismiss();
-                                send_to_booker(booker_phone,"Property has been successfully booked!%0A%0A" +
-                                        "Property Details: "+home_detail_address+"%0A%0A"+
-                                        "Landlord Details: "+
-                                        "%0AName: "+landlord_name+
-                                        "%0APhone: "+landlord_phone+
-                                        "%0AEmail: "+landlord_email+"%0A%0A%0A%"+company_brand,image1Url);
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -349,19 +351,19 @@ public class Buy_DetailActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         progressDialog.dismiss();
                         Toast.makeText(Buy_DetailActivity.this, "PAymetn Sucecc", Toast.LENGTH_SHORT).show();
-//                        Intent intent = new Intent(getApplicationContext(),SuccessBooking.class);
-//                        startActivity(intent);
-//                        finish();
+                        Intent intent = new Intent(getApplicationContext(),SuccessBooking.class);
+                        startActivity(intent);
+                        finish();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         progressDialog.dismiss();
-                        Toast.makeText(Buy_DetailActivity.this, "PAymetn Sucecc", Toast.LENGTH_SHORT).show();
-//                        Intent intent = new Intent(getApplicationContext(),SuccessBooking.class);
-//                        startActivity(intent);
-//                        finish();
+                        Toast.makeText(Buy_DetailActivity.this, "Payment Failed", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(),Homescreeen.class);
+                        startActivity(intent);
+                        finish();
                     }
                 }
         );
