@@ -97,33 +97,34 @@
             android:id="@+id/phone_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:orientation="vertical"
             android:visibility="gone">
 
             <EditText
+                android:id="@+id/phoneno_to_login"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
-                android:id="@+id/phoneno_to_login"
+                android:layout_gravity="center_horizontal"
                 android:background="@drawable/stroke"
                 android:drawableLeft="@drawable/baseline_local_phone_24"
                 android:drawablePadding="8dp"
                 android:hint="Enter PhoneNo "
-                android:textColorHint="#504F4F"
                 android:padding="8dp"
-                android:layout_gravity="center_horizontal"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:textColorHint="#504F4F" />
+
             <Button
                 android:id="@+id/btnphone_login"
                 android:layout_width="300dp"
                 android:layout_height="55dp"
-                android:layout_marginTop="15dp"
-                android:text="login"
                 android:layout_gravity="center_horizontal"
-                app:cornerRadius = "40dp"
-                android:backgroundTint="#65E6EF"/>
+                android:layout_marginTop="15dp"
+                android:backgroundTint="#65E6EF"
+                android:text="login"
+                app:cornerRadius="40dp" />
 
         </LinearLayout>
 

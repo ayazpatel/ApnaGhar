@@ -38,7 +38,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="We have sent otp to your Mob No: 7778878967"
+            android:text="We have sent otp to your phone number please kindly proceed"
             android:textColor="#939393"
             android:layout_marginTop="20dp"
             android:textSize="20dp"
