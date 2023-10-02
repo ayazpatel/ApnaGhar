@@ -3,7 +3,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="3dp">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,12 +16,17 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/buySEll_imageViewSEll"
+            <androidx.cardview.widget.CardView
                 android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:src="@drawable/placeholder_image"
-                android:scaleType="centerCrop" />
+                app:cardCornerRadius="18dp"
+                android:layout_height="120dp">
+                <ImageView
+                    android:id="@+id/buySEll_imageViewSEll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/placeholder_image"
+                    android:scaleType="centerCrop" />
+            </androidx.cardview.widget.CardView>
             <TextView
                 android:id="@+id/buySEll_textViewIdSEll"
                 android:layout_width="wrap_content"
@@ -31,12 +36,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="vertical"
+                android:padding="10dp"
+                android:gravity="center"
                 android:layout_marginLeft="20dp"
                 android:layout_height="match_parent">
                 <LinearLayout
                     android:orientation="horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/buySEll_textViewBS_TypeSEll"
@@ -49,14 +55,14 @@
                         android:id="@+id/buySEll_textViewLandmarkSEll"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="20dp"
+                        android:textSize="17dp"
+                        android:maxLines="1"
                         android:textColor="@color/black"
                         android:text="Adajan" />
                 </LinearLayout>
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="120dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:layout_height="wrap_content">
                     <TextView
@@ -64,16 +70,17 @@
                         android:id="@+id/buySEll_textViewPriceSEll"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
                         android:textColor="@color/black"
+                        android:maxLines="1"
                         android:text="10000" />
                     <TextView
                         android:layout_alignParentLeft="true"
                         android:id="@+id/buySEll_textViewBS_ForSEll"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
+                        android:layout_marginTop="10dp"
                         android:textColor="@color/black"
                         android:text="SEll"/>
                 </LinearLayout>

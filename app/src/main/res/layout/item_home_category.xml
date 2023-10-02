@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="25dp"
         android:elevation="5dp"
-        app:cardBackgroundColor="#E6E6E6">
+        app:cardBackgroundColor="#FFFFFF">
         <LinearLayout
             android:layout_margin="5dp"
             android:orientation="vertical"
@@ -51,7 +51,7 @@
             </LinearLayout>
             <RelativeLayout
                 android:orientation="horizontal"
-                android:layout_width="120dp"
+                android:layout_width="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="7dp"
                 android:layout_marginBottom="4dp"
@@ -60,14 +60,17 @@
                     android:layout_alignParentRight="true"
                     android:id="@+id/HOME_CATEGORY_textViewPriceHOME_CATEGORY"
                     android:layout_width="wrap_content"
+                    android:layout_marginRight="20dp"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
                     android:text="10000" />
                 <TextView
                     android:layout_alignParentLeft="true"
                     android:id="@+id/HOME_CATEGORY_textViewBS_ForHOME_CATEGORY"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:textSize="18sp"
                     android:text="RENT"/>
             </RelativeLayout>

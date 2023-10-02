@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:text="OFFERS "
             android:textColor="@color/black"
-            android:textSize="18sp">
+            android:textSize="20sp">
         </TextView>
 
         <androidx.viewpager2.widget.ViewPager2
@@ -168,7 +168,6 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <androidx.recyclerview.widget.RecyclerView
-                    android:layout_marginTop="15dp"
                     android:id="@+id/recyclerViewRent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -188,6 +187,7 @@
         <androidx.cardview.widget.CardView
             app:cardCornerRadius="15dp"
             app:cardElevation="4dp"
+            android:layout_marginBottom="80dp"
             android:layout_width="match_parent"
             android:background="#E9FCFF"
             android:layout_height="wrap_content">
@@ -201,7 +201,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:orientation="vertical"
-                    android:layout_marginBottom="60dp"
                     android:padding="5dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
