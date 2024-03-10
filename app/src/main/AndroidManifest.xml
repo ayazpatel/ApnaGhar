@@ -29,6 +29,9 @@
             android:name=".MySellingsActivity"
             android:exported="false" />
         <activity
+            android:name=".MyBuyingActivity"
+            android:exported="false" />
+        <activity
             android:name=".PaymentActivity"
             android:exported="false" />
         <activity
