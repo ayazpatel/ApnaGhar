@@ -23,14 +23,14 @@ import java.util.List;
 public class MyBuyingActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private MyBuyingActivity adapter;
-    private List<MyBuyingItem> myBuyingList;
+    private MySellingsAdapter adapter;
+    private List<MySellingItem> mySellingList;
     public String receivedemail;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_buying);
+        setContentView(R.layout.activity_my_sellings);
 
 
         Intent intent = getIntent();
@@ -40,7 +40,7 @@ public class MyBuyingActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        myBuyingList = new ArrayList<>();
+        mySellingList = new ArrayList<>();
 
         fetchDataFromAPI();
     }
@@ -68,57 +68,58 @@ public class MyBuyingActivity extends AppCompatActivity {
                                 String price = item.getString("Price");
                                 String image = item.getString("Image1");
 
-                                MyBuyingItem myBuyingItem = new MyBuyingItem(id, bsType, createdAt, price, image);
-                                myBuyingList.add(myBuyingItem);
+                                MySellingItem mySellingItem = new MySellingItem(id, bsType, createdAt, price, image);
+                                mySellingList.add(mySellingItem);
                             }
-//                            adapter = new MyBuyingAdapter(myBuyingList, getApplicationContext());
-//                            recyclerView.setAdapter(adapter);
 
-//                            adapter.setOnItemClickListener(new MySellingsAdapter.OnItemClickListener() {
-//                                @Override
-//                                public void onItemClick(int position) {
-//                                    MyBuyingItem clickedItem = myBuyingList.get(position);
-//                                    Toast.makeText(MyBuyingActivity.this, "Clicked item ID: " + clickedItem.getId(), Toast.LENGTH_SHORT).show();
-//
-//                                    String updateApiUrl = "https://et.ayafitech.com/api/update_is_sold.php?id=" + clickedItem.getId();
-//                                    RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-//
-//                                    JsonObjectRequest updateRequest = new JsonObjectRequest(
-//                                            Request.Method.GET,
-//                                            updateApiUrl,
-//                                            null,
-//                                            new Response.Listener<JSONObject>() {
-//                                                @Override
-//                                                public void onResponse(JSONObject response) {
-//                                                    try {
-//                                                        String status = response.getString("status");
-//                                                        String message = response.getString("message");
-//
-//                                                        if ("success".equals(status)) {
-//                                                            Toast.makeText(MyBuyingActivity.this, message, Toast.LENGTH_SHORT).show();
-//
-//                                                            clickedItem.setSold(true);
-//                                                            adapter.notifyItemChanged(position);
-//                                                        } else {
-//                                                            Toast.makeText(MyBuyingActivity.this, message, Toast.LENGTH_SHORT).show();
-//                                                        }
-//                                                    } catch (JSONException e) {
-//                                                        e.printStackTrace();
-//                                                    }
-//                                                }
-//                                            },
-//                                            new Response.ErrorListener() {
-//                                                @Override
-//                                                public void onErrorResponse(VolleyError error) {
-//                                                    error.printStackTrace();
-//                                                    Log.e("MyBuyingActivity", "Error: " + error.getMessage());
-//                                                }
-//                                            }
-//                                    );
-//
-//                                    requestQueue.add(updateRequest);
-//                                }
-//                            });
+                            adapter = new MySellingsAdapter(mySellingList, getApplicationContext());
+                            recyclerView.setAdapter(adapter);
+
+                            adapter.setOnItemClickListener(new MySellingsAdapter.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(int position) {
+                                    MySellingItem clickedItem = mySellingList.get(position);
+                                    Toast.makeText(MyBuyingActivity.this, "Clicked item ID: " + clickedItem.getId(), Toast.LENGTH_SHORT).show();
+
+                                    String updateApiUrl = "https://et.ayafitech.com/api/update_is_sold_not.php?id=" + clickedItem.getId();
+                                    RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+                                    JsonObjectRequest updateRequest = new JsonObjectRequest(
+                                            Request.Method.GET,
+                                            updateApiUrl,
+                                            null,
+                                            new Response.Listener<JSONObject>() {
+                                                @Override
+                                                public void onResponse(JSONObject response) {
+                                                    try {
+                                                        String status = response.getString("status");
+                                                        String message = response.getString("message");
+
+                                                        if ("success".equals(status)) {
+                                                            Toast.makeText(MyBuyingActivity.this, message, Toast.LENGTH_SHORT).show();
+
+                                                            clickedItem.setSold(true);
+                                                            adapter.notifyItemChanged(position);
+                                                        } else {
+                                                            Toast.makeText(MyBuyingActivity.this, message, Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    } catch (JSONException e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                }
+                                            },
+                                            new Response.ErrorListener() {
+                                                @Override
+                                                public void onErrorResponse(VolleyError error) {
+                                                    error.printStackTrace();
+                                                    Log.e("MySellingsActivity", "Error: " + error.getMessage());
+                                                }
+                                            }
+                                    );
+
+                                    requestQueue.add(updateRequest);
+                                }
+                            });
 
 
                         } catch (JSONException e) {

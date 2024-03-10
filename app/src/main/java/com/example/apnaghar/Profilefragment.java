@@ -90,10 +90,19 @@ public class Profilefragment extends Fragment {
         });
 
         Button mybtn_verygood = view.findViewById(R.id.mybtn_verygood);
+        Button mybtn_verybad = view.findViewById(R.id.mybtn_verybad);
         mybtn_verygood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(),MySellingsActivity.class);
+                intent.putExtra("my_email_For_you",email);
+                startActivity(intent);
+            }
+        });
+        mybtn_verybad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),MyBuyingActivity.class);
                 intent.putExtra("my_email_For_you",email);
                 startActivity(intent);
             }
