@@ -11,15 +11,22 @@
         android:id="@+id/sell_property_upload_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Upload Your Property:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"
         />
 
     <ImageView
         android:id="@+id/imageview_sell_prpperty_upload_data"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_below="@id/sell_property_upload_title"
-        android:layout_margin="10dp"
-        android:src="@drawable/baseline_upload_file_24" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/baseline_add_photo_alternate_24" />
     <TextView
         android:id="@+id/imageview_sell_prpperty_upload_data_subtitle"
         android:layout_width="wrap_content"
@@ -33,15 +40,15 @@
 
     <ImageView
         android:id="@+id/imageview_sell_prpperty_upload_data2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_below="@id/sell_property_upload_title"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:layout_toRightOf="@+id/imageview_sell_prpperty_upload_data"
-        android:src="@drawable/baseline_upload_file_24" />
+        android:src="@drawable/baseline_add_photo_alternate_24" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,33 +74,44 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:textColor="@color/black"
+                android:inputType="text"
                 android:background="@drawable/strok2"
                 android:hint="Property Type"
                 android:padding="10dp"/>
-            <EditText
-                android:id="@+id/editText_BS_Sub_Type"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:textColor="@color/black"
-                android:hint="1"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/strok2"
-                android:padding="10dp"/>
-            <EditText
-                android:id="@+id/editText_BS_Sub_Type2"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:textColor="@color/black"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/strok2"
-                android:hint="BHK"
-                android:padding="10dp"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/editText_BS_Sub_Type"
+                    android:layout_width="160dp"
+                    android:layout_height="48dp"
+                    android:textColor="@color/black"
+                    android:hint="1"
+                    android:inputType="number"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/strok2"
+                    android:padding="10dp"/>
+                <EditText
+                    android:id="@+id/editText_BS_Sub_Type2"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:inputType="text"
+                    android:background="@drawable/strok2"
+                    android:hint="BHK"
+                    android:padding="10dp"/>
+            </LinearLayout>
+
             <EditText
                 android:id="@+id/editText_BS_For"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:textColor="@color/black"
                 android:layout_marginTop="8dp"
+                android:inputType="text"
                 android:background="@drawable/strok2"
                 android:hint="For Sell/Rent"
                 android:padding="10dp"/>
@@ -102,6 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:hint="Price"
+                android:inputType="number"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/strok2"
                 android:textColor="@color/black"
@@ -111,6 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:hint="Address"
+                android:inputType="text"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/strok2"
                 android:textColor="@color/black"
@@ -120,28 +140,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:hint="Landmark"
+                android:inputType="text"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/strok2"
                 android:textColor="@color/black"
                 android:padding="10dp"/>
-            <EditText
-                android:id="@+id/editText_State"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="State"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/strok2"
-                android:textColor="@color/black"
-                android:padding="10dp"/>
-            <EditText
-                android:id="@+id/editText_City"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="City"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/strok2"
-                android:textColor="@color/black"
-                android:padding="10dp"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/editText_State"
+                    android:layout_width="170dp"
+                    android:layout_height="48dp"
+                    android:hint="State"
+                    android:inputType="text"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/strok2"
+                    android:textColor="@color/black"
+                    android:padding="10dp"/>
+                <EditText
+                    android:id="@+id/editText_City"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="City"
+                    android:inputType="text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/strok2"
+                    android:textColor="@color/black"
+                    android:padding="10dp"/>
+            </LinearLayout>
+
             <EditText
                 android:id="@+id/editText_Description"
                 android:layout_width="match_parent"
@@ -149,6 +179,7 @@
                 android:textColor="@color/black"
                 android:hint="Description"
                 android:layout_marginTop="8dp"
+                android:inputType="text"
                 android:background="@drawable/strok2"
                 android:padding="10dp"/>
             <EditText
@@ -156,6 +187,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:hint="OwnerName"
+                android:inputType="text"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/strok2"
                 android:textColor="@color/black"
@@ -165,6 +197,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:hint="Phone No"
+                android:maxLength="10"
+                android:inputType="number"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/strok2"
                 android:textColor="@color/black"
@@ -188,12 +222,12 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/strok2"
                 android:padding="10dp"/>
-<!--            <EditText-->
-<!--                android:id="@+id/editText_is_Sold"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:hint="Sold (0 or 1)"-->
-<!--                android:padding="10dp"/>-->
+            <!--            <EditText-->
+            <!--                android:id="@+id/editText_is_Sold"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:hint="Sold (0 or 1)"-->
+            <!--                android:padding="10dp"/>-->
         </LinearLayout>
     </ScrollView>
     <Button
